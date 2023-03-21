@@ -70,7 +70,8 @@
             android:layout_margin="4dp"
             android:layout_weight="1"
             android:backgroundTint="#F46F27"
-            android:text="All" />
+            android:text="All"
+            app:cornerRadius="20dp" />
 
         <Button
             android:id="@+id/button2"

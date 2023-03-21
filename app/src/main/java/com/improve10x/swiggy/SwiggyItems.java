@@ -7,5 +7,5 @@ public class SwiggyItems {
     String itemRating;
     String deliveryTime;
     String swiggyItemUrl;
-
+    String itemType;
 }

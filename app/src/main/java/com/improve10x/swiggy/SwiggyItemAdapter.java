@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso;
 
 public class SwiggyItemAdapter extends RecyclerView.Adapter<SwiggyItemsViewHolder> {
     SwiggyItems[] items;
+    OnSwiggyItemcickListener onSwiggyItemcickListener;
 
     public SwiggyItemAdapter(SwiggyItems[] swiggyItems){
         items = swiggyItems;
@@ -34,6 +35,9 @@ public class SwiggyItemAdapter extends RecyclerView.Adapter<SwiggyItemsViewHolde
         holder.ratingTxt.setText(item.itemRating);
         holder.timeTxt.setText(item.deliveryTime);
         Picasso.get().load(item.swiggyItemUrl).into(holder.foodIv);
+        holder.itemView.setOnClickListener(v -> {
+         onSwiggyItemcickListener.onSwiggyItemClick(item);
+        });
     }
 
     @Override

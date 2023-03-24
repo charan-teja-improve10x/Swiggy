@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso;
 
 public class SwiggyGridAdapter extends RecyclerView.Adapter<SwiggyGridViewHolder> {
     SwiggyGridItems[] items;
+    OnSwiggyGridItemClickListener onSwiggyGridItemClickListener;
 
     public SwiggyGridAdapter(SwiggyGridItems[] swiggyGridItems){
         items = swiggyGridItems;
@@ -35,6 +36,9 @@ public class SwiggyGridAdapter extends RecyclerView.Adapter<SwiggyGridViewHolder
         holder.swiggyItemDiscountTxt.setText(item.swiggyItemDiscount);
         holder.swiggyItemDeleveryTimeTxt.setText(item.swiggyItemDeliveryTime);
         Picasso.get().load(item.itemUrl).into(holder.swiggyItemIv);
+        holder.itemView.setOnClickListener(v -> {
+            onSwiggyGridItemClickListener.onSwiggyGridItemClick(item);
+        });
     }
 
     @Override

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class SwiggyItemsActivity extends AppCompatActivity {
     SwiggyItems[] swiggyItems;
@@ -19,6 +21,18 @@ public class SwiggyItemsActivity extends AppCompatActivity {
         createDummyData();
         createAdapter();
         connectAdapter();
+        setupAdapterClickListener();
+    }
+
+    private void setupAdapterClickListener() {
+        swiggyItemAdapter.onSwiggyItemcickListener = new OnSwiggyItemcickListener() {
+            @Override
+            public void onSwiggyItemClick(SwiggyItems item) {
+                Toast.makeText(SwiggyItemsActivity.this, item.itemName, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SwiggyItemsActivity.this,SWiggyGridItemActivity.class);
+                startActivity(intent);
+            }
+        };
     }
 
     private void initViews() {

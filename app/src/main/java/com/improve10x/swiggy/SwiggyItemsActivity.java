@@ -29,7 +29,7 @@ public class SwiggyItemsActivity extends AppCompatActivity {
             @Override
             public void onSwiggyItemClick(SwiggyItems item) {
                 Toast.makeText(SwiggyItemsActivity.this, item.itemName, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(SwiggyItemsActivity.this,SWiggyGridItemActivity.class);
+                Intent intent = new Intent(SwiggyItemsActivity.this,SwiggyItems2Activity.class);
                 startActivity(intent);
             }
         };

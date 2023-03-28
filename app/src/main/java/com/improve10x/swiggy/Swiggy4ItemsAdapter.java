@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class Swiggy4ItemsAdapter extends RecyclerView.Adapter<Swiggy4ItemViewHolder> {
     SwiggyItem4[] items;
+    SwiggyItem4ClickListener swiggyItem4ClickListener;
 
     public Swiggy4ItemsAdapter(SwiggyItem4[] swiggyItems4){
         items = swiggyItems4;
@@ -30,6 +31,9 @@ public class Swiggy4ItemsAdapter extends RecyclerView.Adapter<Swiggy4ItemViewHol
         holder.soupStatusTxt.setText(item.soupStatus);
         holder.soupAddTxt.setText(item.soupAdd);
         holder.soupAmountTxt.setText(item.soupAmount);
+        holder.itemView.setOnClickListener(v -> {
+            swiggyItem4ClickListener.onClickSwiggyItem4Click(item);
+        });
     }
 
     @Override

@@ -15,6 +15,27 @@
         android:theme="@style/Theme.Swiggy"
         tools:targetApi="31">
         <activity
+            android:name=".BagActivity"
+            android:exported="false">
+
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SwiggyOrdersActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SwiggyItems2Activity"
             android:exported="false">
             <meta-data
@@ -23,7 +44,7 @@
         </activity>
         <activity
             android:name=".SwiggyItem4Activity"
-            android:exported="false">
+            android:exported="true">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -38,12 +59,8 @@
         </activity>
         <activity
             android:name=".SwiggyItemsActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"

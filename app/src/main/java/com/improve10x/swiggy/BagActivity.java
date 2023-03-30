@@ -6,44 +6,40 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-public class SwiggyItem4Activity extends AppCompatActivity {
+public class BagActivity extends AppCompatActivity {
     SwiggyItems2[] swiggyItems2;
-    RecyclerView swiggy4ItemsRv;
-    Swiggy2ItemsAdapter swiggy4Adapter;
+    Swiggy2ItemsAdapter bagAdapter;
+    RecyclerView bagRv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_swiggy_item4);
+        setContentView(R.layout.activity_bag);
         initViews();
         createDummyData();
         setupAdapter();
         connectAdapter();
-        setupAdapterClickActionListener();
+        swiggyItemOnLickAction();
     }
 
-    private void setupAdapterClickActionListener() {
-        swiggy4Adapter.onSwiggyItem2ClickLAction = new OnSwiggyItem2ClickAction() {
+    private void swiggyItemOnLickAction() {
+        bagAdapter.onSwiggyItem2ClickLAction = new OnSwiggyItem2ClickAction() {
             @Override
             public void onSwiggyItem2AddBtn(SwiggyItems2 item) {
                 item.swiggyItemCount ++;
-                swiggy4Adapter.notifyDataSetChanged();
+                bagAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onSwiggyItem2RemoveBtn(SwiggyItems2 item) {
                 item.swiggyItemCount --;
-                swiggy4Adapter.notifyDataSetChanged();
+                bagAdapter.notifyDataSetChanged();
             }
         };
     }
 
-    private void initViews() {
-        swiggy4ItemsRv = findViewById(R.id.swiggy_four_items_rv);
-    }
-
     private void createDummyData() {
-        swiggyItems2 = new SwiggyItems2[11];
+        swiggyItems2 = new SwiggyItems2[4];
 
         swiggyItems2[0] = new SwiggyItems2();
         swiggyItems2[0].swiggyItem2 = "Shawarma Roll";
@@ -68,38 +64,18 @@ public class SwiggyItem4Activity extends AppCompatActivity {
         swiggyItems2[3].swiggyDescription2 = "Shawarma Roll vibrant soup that will be a delight for the whole family";
         swiggyItems2[3].swiggyAmount2 = "140";
         swiggyItems2[3].swiggyItemCount = 0;
+    }
 
-        swiggyItems2[4] = new SwiggyItems2();
-        swiggyItems2[4].swiggyItem2 = "Shawarma Roll";
-        swiggyItems2[4].swiggyDescription2 = "Shawarma Roll vibrant soup that will be a delight for the whole family";
-        swiggyItems2[4].swiggyAmount2 = "180";
-        swiggyItems2[4].swiggyItemCount = 0;
-
-        swiggyItems2[5] = new SwiggyItems2();
-        swiggyItems2[5].swiggyItem2 = "Shawarma plate";
-        swiggyItems2[5].swiggyDescription2 = "Shawarma Roll vibrant soup that will be a delight for the whole family";
-        swiggyItems2[5].swiggyAmount2 = "80";
-        swiggyItems2[5].swiggyItemCount = 0;
-
-        swiggyItems2[6] = new SwiggyItems2();
-        swiggyItems2[6].swiggyItem2 = "Shawarma Roll";
-        swiggyItems2[6].swiggyDescription2 = "Shawarma Roll vibrant soup that will be a delight for the whole family";
-        swiggyItems2[6].swiggyAmount2 = "80";
-        swiggyItems2[6].swiggyItemCount = 0;
-
-        swiggyItems2[7] = new SwiggyItems2();
-        swiggyItems2[7].swiggyItem2 = "Shawarma plate";
-        swiggyItems2[7].swiggyDescription2 = "Shawarma Roll vibrant soup that will be a delight for the whole family";
-        swiggyItems2[7].swiggyAmount2 = "80";
-        swiggyItems2[7].swiggyItemCount = 0;
+    private void initViews() {
+        bagRv = findViewById(R.id.bag_rv);
     }
 
     public void setupAdapter(){
-        swiggy4Adapter = new Swiggy2ItemsAdapter(swiggyItems2);
+        bagAdapter = new Swiggy2ItemsAdapter(swiggyItems2);
     }
 
     public void connectAdapter(){
-        swiggy4ItemsRv.setLayoutManager(new LinearLayoutManager(this));
-        swiggy4ItemsRv.setAdapter(swiggy4Adapter);
+        bagRv.setLayoutManager(new LinearLayoutManager(this));
+        bagRv.setAdapter(bagAdapter);
     }
 }
